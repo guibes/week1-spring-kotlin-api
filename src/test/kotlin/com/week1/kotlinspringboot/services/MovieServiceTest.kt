@@ -8,7 +8,7 @@ class MovieServiceTest {
     val movieService: MovieService = MovieService(movieRepository)
 
     @Test
-    fun `should call its data source to retrieve movies`() {
+    fun `should call its data source to retrieve empty list of movies`() {
         var list: List<Movie> = emptyList()
         // given
         every { movieRepository.findAll() } returns list
