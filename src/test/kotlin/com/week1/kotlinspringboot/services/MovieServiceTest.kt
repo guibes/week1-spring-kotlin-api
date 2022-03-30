@@ -77,4 +77,15 @@ class MovieServiceTest {
                 }
         assertEquals(HttpStatus.NOT_FOUND, exception.status)
     }
+
+    @Test
+    fun `deleteMovie(id, title) should call its method and need delete the movie`() {
+        var id: Long = 123
+        // given
+        every { movieRepository.deleteById(id) } returns Unit
+        // where
+        movieService.deleteMovie(id)
+        // then
+        verify(exactly = 1) { movieRepository.deleteById(id) }
+    }
 }
