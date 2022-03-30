@@ -11,6 +11,14 @@ class MovieService(var movieRepository: MovieRepository) {
         return movieRepository.findAll()
     }
 
+    fun findMovieById(id: Long): Movie {
+        var movie: Movie =
+                movieRepository.findById(id).orElseThrow {
+                    ResponseStatusException(HttpStatus.NOT_FOUND, "movie does not exists")
+                }
+        return movie
+    }
+
     fun createMovie(movie: Movie): Movie {
         return movieRepository.save(movie)
     }
