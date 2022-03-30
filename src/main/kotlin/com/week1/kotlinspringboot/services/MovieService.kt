@@ -23,4 +23,8 @@ class MovieService(var movieRepository: MovieRepository) {
         movie.title = title
         return movieRepository.save(movie)
     }
+
+    fun deleteMovie(id: Long) {
+        return movieRepository.deleteById(id)
+    }
 }
