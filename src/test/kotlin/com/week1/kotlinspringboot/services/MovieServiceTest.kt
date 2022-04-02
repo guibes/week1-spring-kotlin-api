@@ -85,7 +85,7 @@ class MovieServiceTest {
     fun `deleteMovie(id) should call its method and need delete the movie`() {
         var id: Long = 123
         // given
-        every { movieRepository.deleteById(id) } returns Unit
+        every { movieRepository.deleteById(id) } returns ""
         // where
         movieService.deleteMovie(id)
         // then
