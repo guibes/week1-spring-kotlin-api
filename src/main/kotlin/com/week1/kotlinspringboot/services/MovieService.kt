@@ -33,7 +33,12 @@ class MovieService(var movieRepository: MovieRepository) {
     }
 
     fun deleteMovie(id: Long): String {
-        movieRepository.deleteById(id)
+        var movie: Movie =
+        movieRepository.findById(id).orElseThrow {
+            ResponseStatusException(HttpStatus.NOT_FOUND, "movie does not exists")
+        }
+
+        movieRepository.deleteById(movie.id ?: -1)
         return ""
     }
 }
