@@ -10,6 +10,5 @@ data class Movie(
                 var overview: String,
                 var genre: String,
                 var posterPath: String,
-                var addedAt: LocalDateTime = LocalDateTime.now(),
                 @Id @GeneratedValue var id: Long? = null
 )
