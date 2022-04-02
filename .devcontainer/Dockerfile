@@ -1,4 +1,4 @@
-FROM gradle:7.4.1-jdk17
+FROM gradle:7.4.2-jdk17
 
 # Or your actual UID, GID on Linux
 ARG USERNAME=vscode
