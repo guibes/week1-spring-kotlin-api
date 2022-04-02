@@ -15,9 +15,3 @@ jobs:
           java-version: 17
       - name: Run Tests
         run: gradle test
-      - name: Deploy to heroku using an action
-        uses: akhileshns/heroku-deploy@v3.2.6
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_TOKEN}}
-          heroku_app_name: week1-kotlin-spring
-          heroku_email: geovaneguibes@gmail.com
