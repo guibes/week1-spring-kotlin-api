@@ -1,3 +1,6 @@
+package com.week1.kotlinspringboot.movie
+
+import MovieFactory
 import com.github.javafaker.Faker
 import com.week1.kotlinspringboot.movie.*
 import io.mockk.*
