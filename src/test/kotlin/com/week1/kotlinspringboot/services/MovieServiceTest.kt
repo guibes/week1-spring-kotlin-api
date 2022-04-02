@@ -87,7 +87,7 @@ class MovieServiceTest {
         var id: Long = movie.id ?: 1
         // given
         every { movieRepository.findById(id) } returns Optional.of(movie)
-        every { movieRepository.deleteById(id) } returns ""
+        every { movieRepository.deleteById(id) } returns Unit
         // where
         movieService.deleteMovie(id)
         // then
