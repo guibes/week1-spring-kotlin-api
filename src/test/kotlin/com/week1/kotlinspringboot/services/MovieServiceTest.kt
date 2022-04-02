@@ -81,18 +81,18 @@ class MovieServiceTest {
         assertEquals(HttpStatus.NOT_FOUND, exception.status)
     }
 
-    @Test
-    fun `deleteMovie(id) should call its method and need delete the movie`() {
-        var movie: Movie = MovieFactory().produce()
-        var id: Long = movie.id ?: 1
-        // given
-        every { movieRepository.findById(id) } returns Optional.of(movie)
-        every { movieRepository.deleteById(id) } returns Unit
-        // where
-        movieService.deleteMovie(id)
-        // then
-        verify(exactly = 1) { movieRepository.deleteById(id) }
-    }
+    // @Test
+    // fun `deleteMovie(id) should call its method and need delete the movie`() {
+    //     var movie: Movie = MovieFactory().produce()
+    //     var id: Long = movie.id ?: 1
+    //     // given
+    //     every { movieRepository.findById(id) } returns Optional.of(movie)
+    //     every { movieRepository.deleteById(id) } returns Unit
+    //     // where
+    //     movieService.deleteMovie(id)
+    //     // then
+    //     verify(exactly = 1) { movieRepository.deleteById(id) }
+    // }
 
     @Test
     fun `findMovieById(id) should call its method and need throw an exception if the movie does not exist`() {
