@@ -85,7 +85,7 @@ class MovieServiceTest {
     fun `deleteMovie(id) should call its method and need delete the movie`() {
         var movie: Movie = MovieFactory().produce()
         // given
-        every { movieRepository.findById(id) } returns movie
+        every { movieRepository.findById(id) } returns Optional.of(movie)
         every { movieRepository.deleteById(id) } returns ""
         // where
         movieService.deleteMovie(movie.id ?: 1)
