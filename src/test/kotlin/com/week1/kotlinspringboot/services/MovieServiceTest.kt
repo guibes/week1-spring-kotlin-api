@@ -83,11 +83,12 @@ class MovieServiceTest {
 
     @Test
     fun `deleteMovie(id) should call its method and need delete the movie`() {
-        var id: Long = 123
+        var movie: Movie = MovieFactory().produce()
         // given
+        every { movieRepository.findById(id) } returns movie
         every { movieRepository.deleteById(id) } returns ""
         // where
-        movieService.deleteMovie(id)
+        movieService.deleteMovie(movie.id ?: 1)
         // then
         verify(exactly = 1) { movieRepository.deleteById(id) }
     }
